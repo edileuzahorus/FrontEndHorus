@@ -1,4 +1,4 @@
-#FrontEndHorus
+# FrontEndHorus
 
 1 - Clone o repositório, após isso será necessário instalar todas as dependencias do projeto, é possivel fazer isso utilizando o compando
 ``` npm install ```
