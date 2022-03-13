@@ -1,28 +1,64 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button-personal v-on:press="changeShow()" children="Add Contact" />
+    <list-contacts
+      :updateOrNot="this.showCreateContact"
+      v-on:press="changeShow"
+    />
+    <create-contact
+      :contact="currentContact"
+      v-on:press="changeShow()"
+      v-if="this.showCreateContact"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ListContacts from "./pages/ListContacts.vue";
+//import api from "./api";
+import ButtonPersonal from "./components/Button.vue";
+import CreateContact from "./pages/CreateContact.vue";
 
 export default {
-  name: 'App',
+  methods: {
+    changeShow(value) {
+      if (value) {
+        this.currentContact = value;
+      }
+      if (this.showCreateContact) {
+        this.currentContact = {};
+      }
+      this.showCreateContact = !this.showCreateContact;
+    },
+  },
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ListContacts,
+    ButtonPersonal,
+    CreateContact,
+  },
+  data() {
+    return { showCreateContact: false, currentContact: {} };
+  },
+};
 </script>
-
 <style>
+body {
+  margin: 0;
+  background-color: #262626;
+}
+</style>
+
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #262626;
+
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 </style>
