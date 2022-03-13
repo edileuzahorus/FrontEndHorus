@@ -33,5 +33,5 @@ Se o problema persistir você pode trocar o valor da porta em que a aplicação 
 
 Agora basta abrir a url que o terminal te indicar para conseguir utilizar o FrontEnd, lembrando que para rodar o FrontEnd de maneira local é necessário também rodar o BackEnd, já o BackEnd pode ser rodado local e testado via Insomnia ou PostMan.
 
-##Observações e Dificuldades
+## Observações e Dificuldades
 Uma das principais dificuldades foi o deploy ao Heroku, com isso seria bem mais facil de ser testado a aplicação, sem a necessidade de clonar o repositório, a principio o deploy não ocorria, então o repositório nem estava no heroku, porem com algumas pesquisa eu pude resolver esse problema, o erro seria referente ao comando `python managepy collectstatic --noinput` que o heroku dava, que foi resolvido. Atualmente o erro é sobre o 'App Crashed' que por conta do tempo não pude resolver, mas é um erro resolvido facilmente em nodeJs, apenas com a adpatação do Procfile.
